@@ -29,148 +29,495 @@
       --sidebar-border: #243f6b;
       --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body { height: 100%; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
-    .page-shell { display: flex; min-height: 100vh; }
-    .sidebar { width: 216px; flex-shrink: 0; background: var(--sidebar-bg); border-right: 1px solid var(--sidebar-border); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-    .sidebar-header { padding: 20px 16px 16px; border-bottom: 1px solid var(--sidebar-border); }
-    .sidebar-code { font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 500; background: rgba(255,255,255,0.15); color: #fff; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.04em; display: inline-block; margin-bottom: 7px; }
-    .sidebar-course-name { font-family: 'Lora', serif; font-size: 14px; font-style: italic; color: #ffffff; line-height: 1.45; }
-    .sidebar-term { font-size: 14px; color: #ffffff; margin-top: 4px; }
-    .sidebar-nav { flex: 1; padding: 8px 0 4px; }
-    .nav-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; padding: 10px 16px 4px; display: block; }
-    .tab-btn { display: block; width: 100%; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; border: none; background: transparent; color: #e8e8e8; cursor: pointer; text-align: left; border-left: 3px solid transparent; transition: background 0.12s, color 0.12s, border-color 0.12s; white-space: nowrap; }
-    .tab-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
-    .tab-btn.active { color: #fff; background: rgba(255,255,255,0.15); border-left-color: #fff; font-weight: 600; }
-    .sidebar-links { border-top: 1px solid var(--sidebar-border); padding: 10px 10px 18px; }
-    .links-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #b0aa9f; padding: 6px 6px 5px; display: block; }
-    .quick-link { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; padding: 6px 8px; border-radius: 5px; text-decoration: none; color: #e7e7e7; transition: background 0.12s, color 0.12s; margin-bottom: 1px; }
-    .quick-link:hover { background: rgba(252,252,252,0.1); color: var(--navy-mid); }
-    .ql-icon { font-size: 12px; width: 16px; text-align: center; flex-shrink: 0; opacity: 0.75; }
-    .content-area { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-    .topbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; height: 50px; display: flex; align-items: center; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
-    .topbar-title { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--text); }
-    main { padding: 36px 40px 80px; max-width: 920px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .page-shell {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 216px;
+      flex-shrink: 0;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 20px 16px 16px;
+      border-bottom: 1px solid var(--sidebar-border);
+    }
+
+    .sidebar-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      font-weight: 500;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      display: inline-block;
+      margin-bottom: 7px;
+    }
+
+    .sidebar-course-name {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: #ffffff;
+      line-height: 1.45;
+    }
+
+    .sidebar-term {
+      font-size: 14px;
+      color: #ffffff;
+      margin-top: 4px;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 8px 0 4px;
+    }
+
+    .nav-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding: 10px 16px 4px;
+      display: block;
+    }
+
+    .tab-btn {
+      display: block;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      color: #e8e8e8;
+      cursor: pointer;
+      text-align: left;
+      border-left: 3px solid transparent;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    }
+
+    .tab-btn.active {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border-left-color: #fff;
+    font-weight: 600;
+    }
+
+    .sidebar-links {
+      border-top: 1px solid var(--sidebar-border);
+      padding: 10px 10px 18px;
+    }
+
+    .links-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b0aa9f;
+      padding: 6px 6px 5px;
+      display: block;
+    }
+
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 8px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #e7e7e7;
+      transition: background 0.12s, color 0.12s;
+      margin-bottom: 1px;
+    }
+
+    .quick-link:hover {
+      background: rgba(252, 252, 252, 0.1);
+      color: var(--navy-mid);
+    }
+
+    .ql-icon {
+      font-size: 12px;
+      width: 16px;
+      text-align: center;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    .content-area {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topbar-title {
+      font-family: 'Lora', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    main {
+      padding: 36px 40px 80px;
+      max-width: 920px;
+    }
+
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
-    footer { border-top: 1px solid var(--border); padding: 14px 40px; font-size: 11px; color: var(--text-faint); background: var(--white); margin-top: auto; }
 
-    .break-banner { background: #fffbf0; border: 2px solid #e8c84a; border-radius: 12px; padding: 28px 32px; margin-bottom: 32px; text-align: center; }
-    .break-sun { font-size: 48px; margin-bottom: 12px; display: block; }
-    .break-banner h2 { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: #7a5a00; margin-bottom: 8px; }
-    .break-banner p { font-size: 14px; color: #9a7010; line-height: 1.7; max-width: 520px; margin: 0 auto; }
-    .break-dates { display: inline-block; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; background: #fff3c0; border: 1px solid #e8c84a; color: #7a5a00; padding: 6px 16px; border-radius: 20px; margin-top: 14px; }
-    .break-countdown { margin-top: 16px; font-size: 13px; color: #b08020; font-weight: 500; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 14px 40px;
+      font-size: 11px;
+      color: var(--text-faint);
+      background: var(--white);
+      margin-top: auto;
+    }
 
-    .hero { margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-    .hero h1 { font-family: 'Lora', serif; font-size: 27px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
-    .hero-meta { font-size: 13px; color: var(--text-faint); margin-bottom: 16px; }
+    .hero {
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: 27px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-faint);
+      margin-bottom: 16px;
+    }
+
     .hero-meta strong { color: var(--text-muted); }
-    .hero p { font-size: 15px; line-height: 1.75; color: var(--text-muted); max-width: 720px; }
+
+    .hero p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
     .hero p + p { margin-top: 12px; }
-    .section-title { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; color: var(--text); margin: 32px 0 14px; }
-    .section-subtitle { font-size: 13px; color: var(--text-faint); margin-bottom: 10px; }
-    .themed-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 28px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 32px 0 14px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-faint);
+      margin-bottom: 10px;
+    }
+
+    .themed-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
     .themed-table thead tr { background: #f3f4f6; }
-    .themed-table thead th { text-align: left; padding: 11px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .themed-table thead th {
+      text-align: left;
+      padding: 11px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
     .themed-table tbody tr:nth-child(even) { background: #fafafa; }
     .themed-table tbody tr:nth-child(odd) { background: var(--white); }
-    .themed-table td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+    .themed-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
     .themed-table tbody tr:last-child td { border-bottom: none; }
-    .themed-table td.icon-cell { width: 44px; text-align: center; font-size: 18px; background: #f5f5f5 !important; }
+    .themed-table td.icon-cell {
+      width: 44px;
+      text-align: center;
+      font-size: 18px;
+      background: #f5f5f5 !important;
+    }
     .themed-table td strong { color: var(--text); }
     .themed-table td .sub { font-size: 12px; color: var(--text-faint); margin-top: 2px; display: block; }
-    .callout { padding: 13px 16px; border-radius: 0 6px 6px 0; font-size: 14px; margin-bottom: 18px; line-height: 1.6; }
-    .callout-red { background: var(--accent-light); border-left: 4px solid var(--accent); color: #7b2d0c; }
-    .callout-blue { background: var(--navy-light); border-left: 4px solid var(--navy-mid); color: #1e3a5f; }
+
+    .callout {
+      padding: 13px 16px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .callout-red    { background: var(--accent-light); border-left: 4px solid var(--accent); color: #7b2d0c; }
+    .callout-blue   { background: var(--navy-light); border-left: 4px solid var(--navy-mid); color: #1e3a5f; }
     .callout-orange { background: #fef9ef; border-left: 4px solid #c9846c; color: #7a3a0f; }
-    .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
-    .philosophy-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
-    .philosophy-card h4 { font-size: 13px; font-weight: 600; color: var(--navy-mid); margin-bottom: 6px; }
-    .philosophy-card p { font-size: 13px; line-height: 1.65; color: var(--text-muted); }
-    .contact-table { width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .philosophy-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    .philosophy-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy-mid);
+      margin-bottom: 6px;
+    }
+
+    .philosophy-card p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    .contact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
     .contact-table td { padding: 11px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
     .contact-table td.label { width: 140px; background: #f5f5f5; font-weight: 600; font-size: 13px; color: var(--text-muted); }
     .contact-table tr:last-child td { border-bottom: none; }
     .contact-table a { color: var(--navy-mid); text-decoration: none; }
     .contact-table a:hover { text-decoration: underline; }
     .contact-table .note { font-size: 12px; color: var(--text-faint); display: block; margin-top: 3px; }
-    .grade-weight { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; color: var(--navy-mid); white-space: nowrap; text-align: center; }
-    .schedule-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+
+    .grade-weight {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy-mid);
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
     .schedule-table thead tr { background: #f3f4f6; }
-    .schedule-table thead th { text-align: left; padding: 10px 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .schedule-table thead th {
+      text-align: left; padding: 10px 12px;
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
     .schedule-table td { padding: 11px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
     .schedule-table tbody tr:last-child td { border-bottom: none; }
     .schedule-table tbody tr:nth-child(even) { background: #fafafa; }
+    .schedule-table tbody tr.current { background: var(--navy-light); }
     .schedule-table tbody tr.past { background: #f5f5f5; opacity: 0.55; }
-    .schedule-table tbody tr.current-break { background: #fffbf0; border: 2px solid #e8c84a; }
+    .schedule-table tbody tr.break-row { background: #fffbf0; opacity: 0.9; }
+
     .week-label { font-weight: 600; font-size: 12px; white-space: nowrap; }
-    .week-date { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+    .week-date  { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+
     .progress-bar { height: 6px; background: #e8e8e8; border-radius: 3px; overflow: hidden; margin-bottom: 3px; }
     .progress-fill { height: 100%; border-radius: 3px; background: var(--navy-mid); }
     .progress-fill.faded { background: #b8cce4; }
-    .progress-fill.break-fill { background: #e8c84a; }
     .progress-pct { font-size: 10px; color: var(--text-faint); }
-    .progress-pct.current { color: var(--gold); font-weight: 600; }
-    .chip { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-bottom: 4px; white-space: nowrap; line-height: 1.6; }
-    .chip-green { background: var(--green-light); border: 1px solid #7aaa8a; color: var(--green); }
+    .progress-pct.current { color: var(--navy-mid); font-weight: 600; }
+
+    .chip {
+      display: inline-block; font-size: 11px; padding: 2px 8px;
+      border-radius: 4px; margin-bottom: 4px; white-space: nowrap; line-height: 1.6;
+    }
+    .chip-green  { background: var(--green-light);  border: 1px solid #7aaa8a; color: var(--green); }
     .chip-orange { background: var(--accent-light); border: 1px solid #c9846c; color: #8b3a0f; }
-    .chip-red { background: var(--accent-light); border: 1px solid var(--accent); color: #7b2d0c; font-weight: 600; }
+    .chip-red    { background: var(--accent-light); border: 1px solid var(--accent); color: #7b2d0c; font-weight: 600; }
     .chip-purple { background: var(--purple-light); border: 1px solid #b89fd4; color: var(--purple); }
-    .chip-blue { background: var(--navy-light); border: 1px solid #8aaad4; color: var(--navy-mid); }
-    .chip-navy { background: #eef2f8; border: 1px solid #7a9acc; color: var(--navy-mid); }
-    .chip-gold { background: #fffbf0; border: 1px solid #e8c84a; color: #7a5a00; font-weight: 600; }
+    .chip-blue   { background: var(--navy-light);   border: 1px solid #8aaad4; color: var(--navy-mid); }
+    .chip-navy   { background: #eef2f8; border: 1px solid #7a9acc; color: var(--navy-mid); }
+
     .pcrs-section { margin-top: 7px; padding-top: 7px; border-top: 1px dashed #ddd; }
     .pcrs-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #bbb; margin-bottom: 4px; }
     .chip-stack { display: flex; flex-direction: column; gap: 3px; }
-    .checkpoint-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+
+    .checkpoint-table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px;
+    }
     .checkpoint-table thead tr { background: #f3f4f6; }
-    .checkpoint-table thead th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .checkpoint-table thead th {
+      text-align: left; padding: 10px 14px;
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--text-muted); border-bottom: 1px solid var(--border);
+    }
     .checkpoint-table td { padding: 13px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; line-height: 1.6; }
     .checkpoint-table tbody tr:last-child td { border-bottom: none; }
     .checkpoint-table tbody tr:nth-child(even) { background: #fafafa; }
     .checkpoint-table td .sub { font-size: 12px; color: var(--text-faint); }
-    .policy-section-title { font-size: 12px; font-weight: 700; color: var(--navy-mid); border-bottom: 2px solid var(--navy-mid); padding-bottom: 6px; margin: 28px 0 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    .policy-section-title {
+      font-size: 12px; font-weight: 700; color: var(--navy-mid);
+      border-bottom: 2px solid var(--navy-mid);
+      padding-bottom: 6px; margin: 28px 0 12px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
     .policy-section-title:first-child { margin-top: 0; }
-    .policy-table { width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 8px; }
+
+    .policy-table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 8px;
+    }
     .policy-table td { padding: 12px 14px; border-bottom: 1px solid #f0f0f0; vertical-align: top; line-height: 1.65; }
     .policy-table td.label { width: 160px; background: #f5f5f5; font-weight: 600; font-size: 13px; color: var(--text-muted); }
     .policy-table tbody tr:last-child td { border-bottom: none; }
-    .team-section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #999; margin: 28px 0 12px; }
+
+    .team-section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; color: #999; margin: 28px 0 12px;
+    }
     .team-section-label:first-child { margin-top: 0; }
-    .instructor-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+
+    .instructor-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 24px;
+    }
     .person-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-    .avatar { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: #EEEDFE; display: flex; align-items: center; justify-content: center; }
+
+    .avatar {
+      width: 56px; height: 56px; border-radius: 50%; overflow: hidden;
+      flex-shrink: 0; background: #EEEDFE;
+      display: flex; align-items: center; justify-content: center;
+    }
     .avatar img { width: 100%; height: 100%; object-fit: cover; }
     .avatar-initials { font-size: 16px; font-weight: 700; color: #3C3489; }
+
     .person-name { font-family: 'Lora', serif; font-size: 19px; font-weight: 600; margin-bottom: 4px; }
-    .role-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; background: #EEEDFE; color: #3C3489; }
+
+    .role-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px; background: #EEEDFE; color: #3C3489;
+    }
+
     .person-bio { font-size: 14px; line-height: 1.75; color: var(--text-muted); margin-bottom: 14px; }
+    .person-bio + .person-bio { margin-top: -6px; }
+
     .contact-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .contact-chip { display: inline-block; font-size: 12px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); color: var(--text-muted); background: #fafafa; text-decoration: none; }
+    .contact-chip {
+      display: inline-block; font-size: 12px; padding: 4px 12px;
+      border-radius: 20px; border: 1px solid var(--border);
+      color: var(--text-muted); background: #fafafa; text-decoration: none;
+    }
     a.contact-chip { color: var(--navy-mid); }
     a.contact-chip:hover { background: var(--navy-light); border-color: var(--navy-mid); }
+
     .interests-label { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #aaa; margin-bottom: 6px; }
     .interests { display: flex; flex-wrap: wrap; gap: 6px; }
     .interest-tag { font-size: 12px; padding: 3px 10px; border-radius: 20px; border: 1px solid #e8e8e8; color: #666; }
+
     .ta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
     .ta-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
-    .ta-card-placeholder { background: #fafafa; border: 1px dashed #d4d4d4; border-radius: 12px; padding: 18px; text-align: center; color: #aaa; font-size: 13px; font-style: italic; }
+    .ta-card-placeholder {
+      background: #fafafa; border: 1px dashed #d4d4d4;
+      border-radius: 12px; padding: 18px; text-align: center;
+      color: #aaa; font-size: 13px; font-style: italic;
+    }
+
     .outcomes-list { list-style: none; margin-bottom: 28px; }
-    .outcomes-list li { padding: 9px 14px; font-size: 14px; border-bottom: 1px solid #f0f0f0; color: var(--text-muted); line-height: 1.6; }
+    .outcomes-list li {
+      padding: 9px 14px; font-size: 14px;
+      border-bottom: 1px solid #f0f0f0; color: var(--text-muted); line-height: 1.6;
+    }
     .outcomes-list li:first-child { border-top: 1px solid var(--border); border-radius: 8px 8px 0 0; }
-    .outcomes-list li:last-child { border-bottom: none; border-radius: 0 0 8px 8px; }
-    .outcomes-list li:nth-child(odd) { background: var(--white); }
+    .outcomes-list li:last-child  { border-bottom: none; border-radius: 0 0 8px 8px; }
+    .outcomes-list li:nth-child(odd)  { background: var(--white); }
     .outcomes-list li:nth-child(even) { background: #fafafa; }
     .outcomes-list li::before { content: '→'; color: var(--navy-mid); font-weight: 600; margin-right: 10px; }
+
     @media (max-width: 820px) {
       .page-shell { flex-direction: column; }
-      .sidebar { width: 100%; height: auto; position: static; }
+      .sidebar { width: 100%; height: auto; position: static; flex-direction: column; }
       .sidebar-nav { display: flex; flex-wrap: wrap; padding: 6px 8px; }
       .nav-label { display: none; }
       .tab-btn { width: auto; padding: 7px 12px; border-left: none; border-bottom: 3px solid transparent; }
       .tab-btn.active { border-left-color: transparent; border-bottom-color: var(--navy-mid); }
+      .sidebar-links { display: flex; flex-wrap: wrap; gap: 4px; flex-direction: row; }
+      .links-label { display: none; }
       .philosophy-grid { grid-template-columns: 1fr; }
       main { padding: 20px 16px 60px; }
       .topbar { padding: 0 16px; }
@@ -178,13 +525,16 @@
   </style>
 </head>
 <body>
+
 <div class="page-shell">
+
   <aside class="sidebar">
     <div class="sidebar-header">
       <span class="sidebar-code">CSC343H5Y</span>
       <div class="sidebar-course-name">Introduction to Databases</div>
       <div class="sidebar-term">Summer 2026 · UTM</div>
     </div>
+
     <nav class="sidebar-nav">
       <span class="nav-label">Navigation</span>
       <button class="tab-btn active" data-tab="home">Home</button>
@@ -194,38 +544,45 @@
       <button class="tab-btn" data-tab="policies">Policies</button>
       <button class="tab-btn" data-tab="team">Course Team</button>
     </nav>
+
     <div class="sidebar-links">
       <span class="links-label">Quick Links</span>
-      <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/" class="quick-link" target="_blank" rel="noopener"><span class="ql-icon">⬇</span> Downloads</a>
-      <a href="https://pcrs.utm.utoronto.ca/343_20265" class="quick-link" target="_blank" rel="noopener"><span class="ql-icon">📖</span> PCRS</a>
-      <a href="https://piazza.com/class/mnnmaazhf9u26o" class="quick-link" target="_blank" rel="noopener"><span class="ql-icon">💬</span> Piazza</a>
-      <a href="https://mcsmarku.utm.utoronto.ca/markus26u/" class="quick-link" target="_blank" rel="noopener"><span class="ql-icon">📝</span> MarkUs</a>
+      <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/" class="quick-link" target="_blank" rel="noopener">
+        <span class="ql-icon">⬇</span> Downloads
+      </a>
+      <a href="https://pcrs.utm.utoronto.ca/343_20265" class="quick-link" target="_blank" rel="noopener">
+        <span class="ql-icon">📖</span> PCRS
+      </a>
+      <a href="https://piazza.com/class/mnnmaazhf9u26o" class="quick-link" target="_blank" rel="noopener">
+        <span class="ql-icon">💬</span> Piazza
+      </a>
+      <a href="https://mcsmarku.utm.utoronto.ca/markus26u/" class="quick-link" target="_blank" rel="noopener">
+        <span class="ql-icon">📝</span> MarkUs
+      </a>
     </div>
   </aside>
 
   <div class="content-area">
+
     <div class="topbar">
       <span class="topbar-title" id="topbar-title">Home</span>
     </div>
+
     <main>
 
-      <!-- HOME -->
+      <!-- ══ HOME ══ -->
       <div class="tab-panel active" id="tab-home">
-        <div class="break-banner">
-          <span class="break-sun">☀️</span>
-          <h2>You're on reading break — go enjoy your summer!</h2>
-          <p>No classes, no deadlines, no homework. Close your laptop, touch some grass, and recharge. Classes resume <strong>July 8</strong> with Week 7: functional dependencies and normal forms.</p>
-          <div class="break-dates">June 15 – July 2 · Reading Break</div>
-          <div class="break-countdown">Classes resume in <strong id="days-left">—</strong> days</div>
-        </div>
+
         <div class="hero">
           <h1>Welcome to CSC343H5Y — Introduction to Databases!</h1>
           <p class="hero-meta">Summer 2026 &nbsp;·&nbsp; University of Toronto Mississauga &nbsp;·&nbsp; Instructor: <strong>Naaz Sibia</strong></p>
           <p>Hello and welcome! I'm so glad you're here. Whether databases are completely new to you or you've dabbled in them before, this course is designed for all of us to go from the foundations of database systems to how production systems work. By the end of the summer, you'll be able to design, query, and reason about databases with confidence!</p>
           <p style="margin-top:12px;">This page is your home base. Check here and <strong>Piazza</strong> first for anything course-related. The tabs on the left cover grades, the weekly schedule, Checkpoint details, and all policies.</p>
         </div>
+
         <h2 class="section-title">What is this course about?</h2>
         <p style="font-size:14px;line-height:1.75;color:var(--text-muted);margin-bottom:14px;">CSC343 is an introduction to database management systems. We'll explore how data is modelled, stored, queried, and kept consistent — and why those problems are more challenging than they look.</p>
+
         <table class="themed-table">
           <tbody>
             <tr><td class="icon-cell">🗂</td><td><strong>Data modelling</strong> — how to represent real-world entities and their relationships using ERDs and the relational model</td></tr>
@@ -235,6 +592,7 @@
             <tr><td class="icon-cell">🔐</td><td><strong>Transactions &amp; concurrency</strong> — ACID properties, isolation levels, locking, and what happens when two users touch the same data at once</td></tr>
           </tbody>
         </table>
+
         <h2 class="section-title">Learning Outcomes</h2>
         <p class="section-subtitle">By the end of this course, you will be able to:</p>
         <ul class="outcomes-list">
@@ -247,149 +605,606 @@
           <li>Reason about transactions, isolation levels, and concurrency using 2PL and MVCC</li>
           <li>Situate relational databases within the broader landscape of modern data systems (NoSQL, vector DBs, distributed systems)</li>
         </ul>
+
         <h2 class="section-title">Course Philosophy: Students First</h2>
         <p style="font-size:14px;line-height:1.75;color:var(--text-muted);margin-bottom:16px;">I believe the best learning happens when students feel supported, not stressed. A few principles that shape how this course is run:</p>
+
+        <img src="https://ih1.redbubble.net/image.6081145659.8655/st,small,507x507-pad,600x600,f8f8f8.jpg" alt="" style="width:180px;height:auto;margin-bottom:16px;display:block;">
+
         <div class="philosophy-grid">
-          <div class="philosophy-card"><h4>Better later is still better</h4><p>The 5% between the midterm and final always shifts to whichever score is higher.</p></div>
-          <div class="philosophy-card"><h4>Good work takes iteration</h4><p>Every Checkpoint has a resubmission window. Use the feedback, fix your work, and resubmit.</p></div>
-          <div class="philosophy-card"><h4>Each piece builds the next</h4><p>Every assignment uses the same Research Network. The context builds over time.</p></div>
-          <div class="philosophy-card"><h4>Low-stakes entry</h4><p>Checkpoint 1 is intentionally small and forgiving. The goal is to orient you.</p></div>
-          <div class="philosophy-card"><h4>Partial credit beats zero</h4><p>If you're at risk of missing a deadline, submit whatever you have.</p></div>
-          <div class="philosophy-card"><h4>Please reach out</h4><p>If something is going wrong — personally, academically, or otherwise — please talk to me.</p></div>
+          <div class="philosophy-card">
+            <h4>Better later is still better</h4>
+            <p>The 5% between the midterm and final always shifts to whichever score is higher. If you struggled on the midterm but put in the work and did better on the final, that growth is reflected in your grade.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4>Good work takes iteration</h4>
+            <p>Every Checkpoint has a resubmission window. Use the feedback, fix your work, and resubmit. Students who revise learn more than students who move on.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4>Each piece builds the next</h4>
+            <p>Every assignment uses the same Research Network. The context builds over time and my goal is to make sure everything connects.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4>Low-stakes entry</h4>
+            <p>Checkpoint 1 is intentionally small and forgiving. The goal is to orient you.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4>Partial credit beats zero</h4>
+            <p>If you're at risk of missing a deadline, submit whatever you have. Partial credit is always better than a zero, and the resubmission window exists for exactly this situation.</p>
+          </div>
+          <div class="philosophy-card">
+            <h4>Please reach out</h4>
+            <p>If something is going wrong — personally, academically, or otherwise — please talk to me. I can't always fix things but I promise to always help you find a path forward.</p>
+          </div>
         </div>
+
         <h2 class="section-title">Reach Me</h2>
         <table class="contact-table">
           <tbody>
-            <tr><td class="label">Email</td><td><a href="mailto:naaz.sibia@utoronto.ca">naaz.sibia@utoronto.ca</a><span class="note">Replies within 3 business days. Content questions? Ask on Piazza, not email.</span></td></tr>
-            <tr><td class="label">Office Hours</td><td>Wednesdays 11 AM–1 PM · additional by appointment<span class="note">DH-3074.</span></td></tr>
-            <tr><td class="label">Q&amp;A</td><td><strong><a href="https://piazza.com/class/mnnmaazhf9u26o" target="_blank" rel="noopener">Piazza</a></strong></td></tr>
-            <tr><td class="label">Submissions</td><td><a href="https://mcsmarku.utm.utoronto.ca/markus26u/" target="_blank" rel="noopener">MarkUs</a></td></tr>
-            <tr><td class="label">Accessibility</td><td><a href="mailto:access.utm@utoronto.ca">access.utm@utoronto.ca</a> &nbsp;·&nbsp; 905-569-4699</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- GRADES -->
-      <div class="tab-panel" id="tab-grades">
-        <h2 class="section-title" style="margin-top:0;">Grades &amp; Assessments</h2>
-        <div class="callout callout-red"><strong>⚠ Final exam minimum:</strong> You must score at least 40% on the final exam to pass this course. Falling below that threshold caps your final grade at 47 regardless of all other marks.</div>
-        <h3 style="font-size:15px;font-weight:600;margin:20px 0 10px;">Grade Breakdown</h3>
-        <table class="themed-table">
-          <thead><tr><th>Component</th><th style="width:80px;text-align:center;">Weight</th><th style="width:160px;">Due Date</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Checkpoint 1</strong> — ERD: single Lab<span class="sub">Individual · MarkUs · LaTeX required</span></td><td class="grade-weight">4%</td><td>May 17 · 5 PM</td></tr>
-            <tr><td><strong>Checkpoint 2</strong> — Full ERD + schema + DDL<span class="sub">Individual · MarkUs</span></td><td class="grade-weight">8%</td><td>May 31 · 5 PM</td></tr>
-            <tr><td><strong>Checkpoint 3</strong> — SQL + RA query set<span class="sub">Individual · MarkUs</span></td><td class="grade-weight">8%</td><td>June 14 · 5 PM</td></tr>
-            <tr><td><strong>Checkpoint 4</strong> — Normalisation<span class="sub">Individual · MarkUs</span></td><td class="grade-weight">8%</td><td>July 26 · 5 PM</td></tr>
-            <tr><td><strong>Checkpoint 5</strong> — Transactions<span class="sub">Individual · MarkUs</span></td><td class="grade-weight">8%</td><td>Aug 9 · 5 PM</td></tr>
-            <tr><td><strong>PCRS Weekly Homework</strong><span class="sub">Due before each lecture · no late submissions accepted</span></td><td class="grade-weight">4%</td><td>Weekly</td></tr>
-            <tr><td><strong>In-Person Midterm</strong><span class="sub">1 hr 45 min · lecture slot</span></td><td class="grade-weight">15–20%</td><td>July 22</td></tr>
-            <tr><td><strong>Final Exam</strong><span class="sub">Cumulative · heavier emphasis on post-midterm content</span></td><td class="grade-weight">40–45%</td><td>Exam period</td></tr>
-          </tbody>
-        </table>
-        <div class="callout callout-blue"><strong>Floating weight (5%):</strong> 5% shifts between the midterm and final in favour of whichever score is higher.</div>
-        <h3 style="font-size:15px;font-weight:600;margin:20px 0 8px;">Up to 2% Bonus</h3>
-        <p style="font-size:14px;line-height:1.7;color:var(--text-muted);">Optional surveys/exercises worth up to 2% bonus. Details posted to Piazza. Bonus marks cannot push a final grade above 100%.</p>
-      </div>
-
-      <!-- SCHEDULE -->
-      <div class="tab-panel" id="tab-schedule">
-        <h2 class="section-title" style="margin-top:0;">Weekly Schedule</h2>
-        <div class="break-banner" style="margin-bottom:24px;padding:20px 24px;">
-          <span class="break-sun" style="font-size:32px;">☀️</span>
-          <h2 style="font-size:17px;">Reading break — enjoy it!</h2>
-          <p style="font-size:13px;">No classes until July 8. Next up: Week 7 — functional dependencies and normal forms.</p>
-          <div class="break-dates">Break ends July 2 · Classes resume July 8</div>
-        </div>
-        <table class="schedule-table">
-          <thead><tr><th style="width:72px;">Week</th><th>Topic</th><th style="width:130px;">Progress</th><th style="width:220px;">Deadlines</th><th style="width:200px;">Materials</th></tr></thead>
-          <tbody>
-            <tr class="past"><td><div class="week-label">Wk 1</div><div class="week-date">May 6/7</div></td><td><strong>Course kickoff + relational model + intro to ERDs</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:8%"></div></div><div class="progress-pct">8%</div></td><td><span class="chip chip-green">CP1 released</span></td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=21" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=22" style="color:var(--navy-mid);display:block;">Lecture Handout</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=23" style="color:var(--navy-mid);display:block;">Tutorial Handout</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=24" style="color:var(--navy-mid);display:block;">Tutorial DDL</a></td></tr>
-            <tr class="past"><td><div class="week-label">Wk 2</div><div class="week-date">May 13/14</div></td><td><strong>ERDs (continued) + DDL &amp; keys</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:17%"></div></div><div class="progress-pct">17%</div></td><td><div class="chip-stack"><span class="chip chip-orange">CP1 due · May 17</span><span class="chip chip-green">CP2 released</span></div></td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=26" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=27" style="color:var(--navy-mid);display:block;">Lecture Handout</a></td></tr>
-            <tr class="past"><td><div class="week-label">Wk 3</div><div class="week-date">May 20/21</div></td><td><strong>SQL: DML and Basic Queries</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:25%"></div></div><div class="progress-pct">25%</div></td><td style="color:#bbb;font-size:12px;">—</td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=29" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=30" style="color:var(--navy-mid);display:block;">Lecture Handout</a></td></tr>
-            <tr class="past"><td><div class="week-label">Wk 4</div><div class="week-date">May 27/28</div></td><td><strong>SQL advanced: aggregation, subqueries, NULLs, outer joins</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:33%"></div></div><div class="progress-pct">33%</div></td><td><div class="chip-stack"><span class="chip chip-orange">CP2 due · May 31</span><span class="chip chip-green">CP3 released</span></div></td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=33" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=34" style="color:var(--navy-mid);display:block;">Lecture Handout</a></td></tr>
-            <tr class="past"><td><div class="week-label">Wk 5</div><div class="week-date">June 3/4</div></td><td><strong>Relational Algebra</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:42%"></div></div><div class="progress-pct">42%</div></td><td style="color:#bbb;font-size:12px;">—</td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=37" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=38" style="color:var(--navy-mid);display:block;">Lecture Handout</a></td></tr>
-            <tr class="past"><td><div class="week-label">Wk 6</div><div class="week-date">June 10/11</div></td><td><strong>RA aggregation, views &amp; indexes</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:50%"></div></div><div class="progress-pct">50%</div></td><td><div class="chip-stack"><span class="chip chip-orange">CP3 due · Jun 14</span><span class="chip chip-green">CP4 released</span></div></td><td style="font-size:12px;line-height:1.9;"><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=41" style="color:var(--navy-mid);display:block;">Lecture Slides</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=42" style="color:var(--navy-mid);display:block;">Lecture Handout</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=43" style="color:var(--navy-mid);display:block;">Review Handout (Wks 1–6)</a><a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=44" style="color:var(--navy-mid);display:block;">Tutorial 6 Handout</a></td></tr>
-            <tr class="current-break">
+            <tr>
+              <td class="label">Email</td>
               <td>
-                <div class="week-label" style="color:var(--gold);">☀ Break</div>
-                <div class="week-date" style="color:var(--gold);font-weight:600;">← you are here</div>
+                <a href="mailto:naaz.sibia@utoronto.ca">naaz.sibia@utoronto.ca</a>
+                <span class="note">Replies within 3 business days (72 hrs, excl. weekends &amp; holidays). Content questions? Ask on Piazza, not email.</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">Office Hours</td>
+              <td>Wednesdays 11 AM–1 PM · additional by appointment<span class="note">DH-3074. I genuinely enjoy office hours, please come!</span></td>
+            </tr>
+            <tr>
+              <td class="label">Q&amp;A</td>
+              <td><strong><a href="https://piazza.com/class/mnnmaazhf9u26o" target="_blank" rel="noopener">Piazza</a></strong> — the best place for course content questions. Post publicly so everyone benefits, or privately for grade questions / code sharing.</td>
+            </tr>
+            <tr>
+              <td class="label">Submissions</td>
+              <td><a href="https://mcsmarku.utm.utoronto.ca/markus26u/" target="_blank" rel="noopener">MarkUs</a> (git repository)</td>
+            </tr>
+            <tr>
+              <td class="label">Accessibility</td>
+              <td>
+                <a href="mailto:access.utm@utoronto.ca">access.utm@utoronto.ca</a> &nbsp;·&nbsp; 905-569-4699
+                <span class="note">Please connect with Accessibility Services early — accommodations cannot be arranged retroactively.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div><!-- /tab-home -->
+
+      <!-- ══ GRADES ══ -->
+      <div class="tab-panel" id="tab-grades">
+
+        <h2 class="section-title" style="margin-top:0;">Grades &amp; Assessments</h2>
+
+        <div class="callout callout-red">
+          <strong>⚠ Final exam minimum:</strong> You must score at least 40% on the final exam to pass this course. Falling below that threshold caps your final grade at 47 regardless of all other marks.
+        </div>
+
+        <h3 style="font-size:15px;font-weight:600;margin:20px 0 10px;">Grade Breakdown</h3>
+
+        <table class="themed-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th style="width:80px;text-align:center;">Weight</th>
+              <th style="width:160px;">Due Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Checkpoint 1</strong> — ERD: single Lab<span class="sub">Individual · MarkUs · LaTeX required</span></td>
+              <td class="grade-weight">4%</td>
+              <td>May 17 · 5 PM</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 2</strong> — Full ERD + schema + DDL<span class="sub">Individual · MarkUs</span></td>
+              <td class="grade-weight">8%</td>
+              <td>May 31 · 5 PM</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 3</strong> — SQL + RA query set<span class="sub">Individual · MarkUs</span></td>
+              <td class="grade-weight">8%</td>
+              <td>June 14 · 5 PM</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 4</strong> — Normalisation<span class="sub">Individual · MarkUs</span></td>
+              <td class="grade-weight">8%</td>
+              <td>July 26 · 5 PM</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 5</strong> — Transactions<span class="sub">Individual · MarkUs</span></td>
+              <td class="grade-weight">8%</td>
+              <td>Aug 9 · 5 PM</td>
+            </tr>
+            <tr>
+              <td><strong>PCRS Weekly Homework</strong><span class="sub">Due before each lecture · no late submissions accepted</span></td>
+              <td class="grade-weight">4%</td>
+              <td>Weekly</td>
+            </tr>
+            <tr>
+              <td><strong>In-Person Midterm</strong><span class="sub">1 hr 45 min · lecture slot · arrive early, 30+ min late = grade of 0</span></td>
+              <td class="grade-weight">15–20%</td>
+              <td>July 22</td>
+            </tr>
+            <tr>
+              <td><strong>Final Exam</strong><span class="sub">Cumulative · heavier emphasis on post-midterm content</span></td>
+              <td class="grade-weight">40–45%</td>
+              <td>Exam period</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-blue">
+          <strong>Floating weight (5%):</strong> 5% shifts between the midterm and final in favour of whichever score is higher. Final &gt; midterm → 15% midterm + 45% final. Midterm &gt; final → 20% midterm + 40% final.
+        </div>
+
+        <h3 style="font-size:15px;font-weight:600;margin:20px 0 8px;">Up to 2% Bonus</h3>
+        <p style="font-size:14px;line-height:1.7;color:var(--text-muted);">Optional surveys/exercises (approximately one at the start, middle, and end of term) are worth up to 2% bonus. Details posted to Piazza. Random guessing will be detected. Bonus marks cannot push a final grade above 100%.</p>
+
+      </div><!-- /tab-grades -->
+
+      <!-- ══ SCHEDULE ══ -->
+      <div class="tab-panel" id="tab-schedule">
+
+        <h2 class="section-title" style="margin-top:0;">Weekly Schedule</h2>
+        <p style="font-size:13px;color:var(--text-faint);margin-bottom:4px;">The progress bar shows how far through the 12-week course each week falls.</p>
+        <p style="font-size:12px;color:#aaa;margin-bottom:20px;">Topics will be updated as the semester goes on. Check back regularly!</p>
+
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th style="width:72px;">Week</th>
+              <th>Topic</th>
+              <th style="width:130px;">Progress</th>
+              <th style="width:220px;">Deadlines</th>
+              <th style="width:200px;">Materials</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 1</div>
+                <div class="week-date">May 6/7</div>
+              </td>
+              <td><strong>Course kickoff + relational model foundations + intro to ERDs</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:8%;"></div></div>
+                <div class="progress-pct">8%</div>
+              </td>
+              <td><div class="chip-stack"><span class="chip chip-green">Checkpoint 1 released</span></div></td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=21" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=22" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=23" style="color:var(--navy-mid);display:block;">Tutorial Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=24" style="color:var(--navy-mid);display:block;">Tutorial DDL Code</a>
+              </td>
+            </tr>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 2</div>
+                <div class="week-date">May 13/14</div>
+              </td>
+              <td><strong>ERDs (continued) + DDL &amp; keys</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:17%;"></div></div>
+                <div class="progress-pct">17%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-orange">Checkpoint 1 due · May 17, 5 PM</span>
+                  <span class="chip chip-green">Checkpoint 2 released</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue May 12, 11:59 PM</span>
+                    <span class="chip chip-blue" style="margin-top:3px;display:inline-block;">Practice due Sun May 17, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=26" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=27" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+              </td>
+            </tr>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 3</div>
+                <div class="week-date">May 20/21</div>
+              </td>
+              <td><strong>SQL: Data Manipulation (DML) and Basic Queries (Select, Where, From)</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:25%;"></div></div>
+                <div class="progress-pct">25%</div>
+              </td>
+              <td>
+                <div class="pcrs-section" style="border:none;padding:0;margin:0;">
+                  <div class="pcrs-label">PCRS</div>
+                  <div class="chip-stack">
+                    <span class="chip chip-purple">Prep due Tue May 19, 11:59 PM</span>
+                    <span class="chip chip-blue">Practice due Sun May 24, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=29" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=30" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+              </td>
+            </tr>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 4</div>
+                <div class="week-date">May 27/28</div>
+              </td>
+              <td><strong>SQL advanced: aggregation, subqueries, NULLs, outer joins</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:33%;"></div></div>
+                <div class="progress-pct">33%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-orange">Checkpoint 2 due · May 31, 5 PM</span>
+                  <span class="chip chip-green">Checkpoint 3 released</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue May 26, 11:59 PM</span>
+                    <span class="chip chip-blue" style="margin-top:3px;display:inline-block;">Practice due Sun May 31, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=33" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=34" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=35" style="color:var(--navy-mid);display:block;">Tutorial Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=40" style="color:var(--navy-mid);display:block;">Tutorial SQL Code</a>
+              </td>
+            </tr>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 5</div>
+                <div class="week-date">June 3/4</div>
+              </td>
+              <td><strong>Relational Algebra</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:42%;"></div></div>
+                <div class="progress-pct">42%</div>
+              </td>
+              <td>
+                <div class="pcrs-section" style="border:none;padding:0;margin:0;">
+                  <div class="pcrs-label">PCRS</div>
+                  <div class="chip-stack">
+                    <span class="chip chip-purple">Prep due Tue Jun 2, 11:59 PM</span>
+                    <span class="chip chip-blue">Practice due Sun Jun 7, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=37" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=38" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=39" style="color:var(--navy-mid);display:block;">Tutorial Worksheet/Handout</a>
+              </td>
+            </tr>
+
+            <tr class="past">
+              <td>
+                <div class="week-label">Wk 6</div>
+                <div class="week-date">June 10/11</div>
+              </td>
+              <td><strong>RA aggregation, views &amp; indexes</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:50%;"></div></div>
+                <div class="progress-pct">50%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-orange">Checkpoint 3 due · Jun 14, 5 PM</span>
+                  <span class="chip chip-green">Checkpoint 4 released</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue Jun 9, 11:59 PM</span>
+                    <span class="chip chip-blue" style="margin-top:3px;display:inline-block;">Practice due Sun Jun 14, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=41" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=42" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=43" style="color:var(--navy-mid);display:block;">Review Handout (Wks 1–6)</a>
+              </td>
+            </tr>
+
+            <tr class="break-row">
+              <td>
+                <div class="week-label" style="color:var(--gold);">Break</div>
                 <div class="week-date">Jun 15 – Jul 2</div>
               </td>
-              <td style="color:#8a6a00;"><strong>Reading break — no classes!</strong><div style="font-size:12px;color:#a07020;margin-top:4px;">Seriously, close your laptop. The databases will still be here in July.</div></td>
-              <td><div class="progress-bar"><div class="progress-fill break-fill" style="width:50%"></div></div><div class="progress-pct current">halfway there ☀</div></td>
-              <td><span class="chip chip-gold">No deadlines</span></td>
+              <td style="color:#a07020;">
+                ☀️ No classes — go touch grass, recharge, and enjoy summer!
+                <div style="font-size:11px;color:#bbb;margin-top:4px;">Seriously, close your laptop. The databases will still be here in July.</div>
+              </td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:50%;background:#ccc;"></div></div>
+                <div class="progress-pct">reading break</div>
+              </td>
+              <td style="color:#bbb;font-size:12px;">No deadlines</td>
               <td style="font-size:12px;color:#aaa;">—</td>
             </tr>
-            <tr><td><div class="week-label">Wk 7</div><div class="week-date">July 8/9</div></td><td><strong>Database design: functional dependencies &amp; normal forms (1NF to BCNF)</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:58%"></div></div><div class="progress-pct">58%</div></td><td><div class="pcrs-section" style="border:none;padding:0;margin:0;"><div class="pcrs-label">PCRS</div><div class="chip-stack"><span class="chip chip-purple">Prep due Tue Jul 7</span><span class="chip chip-blue">Practice due Sun Jul 12</span></div></div></td><td style="font-size:12px;color:#aaa;">—</td></tr>
-            <tr><td><div class="week-label">Wk 8</div><div class="week-date">July 15/16</div></td><td><strong>Indexes &amp; query optimisation</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:67%"></div></div><div class="progress-pct">67%</div></td><td><div class="pcrs-section" style="border:none;padding:0;margin:0;"><div class="pcrs-label">PCRS</div><div class="chip-stack"><span class="chip chip-purple">Prep due Tue Jul 14</span><span class="chip chip-blue">Practice due Sun Jul 19</span></div></div></td><td style="font-size:12px;color:#aaa;">—</td></tr>
-            <tr><td><div class="week-label">Wk 9</div><div class="week-date">July 22/23</div></td><td><strong>Transactions &amp; concurrency control I</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:75%"></div></div><div class="progress-pct">75%</div></td><td><div class="chip-stack"><span class="chip chip-red">Midterm · Jul 22</span><span class="chip chip-orange">CP4 due · Jul 26</span><span class="chip chip-green">CP5 released</span></div></td><td style="font-size:12px;color:#aaa;">—</td></tr>
-            <tr><td><div class="week-label">Wk 10</div><div class="week-date">July 29/30</div></td><td><strong>Transactions &amp; concurrency control II (locking, MVCC, deadlock)</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:83%"></div></div><div class="progress-pct">83%</div></td><td><div class="pcrs-section" style="border:none;padding:0;margin:0;"><div class="pcrs-label">PCRS</div><div class="chip-stack"><span class="chip chip-purple">Prep due Tue Jul 28</span><span class="chip chip-blue">Practice due Sun Aug 2</span></div></div></td><td style="font-size:12px;color:#aaa;">—</td></tr>
-            <tr><td><div class="week-label">Wk 11</div><div class="week-date">Aug 5/6</div></td><td><strong>Guest lecture: industry databases + modern DB landscape</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:92%"></div></div><div class="progress-pct">92%</div></td><td><span class="chip chip-orange">CP5 due · Aug 9</span></td><td style="font-size:12px;color:#aaa;">—</td></tr>
-            <tr><td><div class="week-label">Wk 12</div><div class="week-date">Aug 12</div></td><td><strong>Exam prep, synthesis and course wrap-up</strong></td><td><div class="progress-bar"><div class="progress-fill faded" style="width:100%"></div></div><div class="progress-pct">100%</div></td><td><span class="chip chip-navy">Final exam</span></td><td style="font-size:12px;color:#aaa;">—</td></tr>
+
+            <tr class="current">
+              <td>
+                <div class="week-label" style="color:var(--navy-mid);">●Wk 7</div>
+                <div style="font-size:10px;color:var(--navy-mid);font-weight:600;margin-top:3px;">you are here</div>
+                <div class="week-date">July 8/9</div>
+              </td>
+              <td><strong>Database design: functional dependencies &amp; normal forms (1NF to BCNF)</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill" style="width:58%;"></div></div>
+                <div class="progress-pct current">58%</div>
+              </td>
+              <td>
+                <div class="pcrs-section" style="border:none;padding:0;margin:0;">
+                  <div class="pcrs-label">PCRS</div>
+                  <div class="chip-stack">
+                    <span class="chip chip-purple">Prep due Tue Jul 7, 11:59 PM</span>
+                    <span class="chip chip-blue">Practice due Sun Jul 12, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;line-height:1.9;">
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=52" style="color:var(--navy-mid);display:block;">Lecture Slides</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=53" style="color:var(--navy-mid);display:block;">Lecture Worksheet/Handout</a>
+                <a href="https://mcs.utm.utoronto.ca/dl-csc343h5-summer26/download.php?id=54" style="color:var(--navy-mid);display:block;">Tutorial Worksheet/Handout</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td><div class="week-label">Wk 8</div><div class="week-date">July 15/16</div></td>
+              <td><strong>Indexes &amp; query optimisation</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:67%;"></div></div>
+                <div class="progress-pct">67%</div>
+              </td>
+              <td>
+                <div class="pcrs-section" style="border:none;padding:0;margin:0;">
+                  <div class="pcrs-label">PCRS</div>
+                  <div class="chip-stack">
+                    <span class="chip chip-purple">Prep due Tue Jul 14, 11:59 PM</span>
+                    <span class="chip chip-blue">Practice due Sun Jul 19, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;color:#aaa;">—</td>
+            </tr>
+
+            <tr>
+              <td><div class="week-label">Wk 9</div><div class="week-date">July 22/23</div></td>
+              <td><strong>Transactions &amp; concurrency control I (ACID, serializability)</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:75%;"></div></div>
+                <div class="progress-pct">75%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-red">Midterm · Jul 22</span>
+                  <span class="chip chip-orange">Checkpoint 4 due · Jul 26, 5 PM</span>
+                  <span class="chip chip-green">Checkpoint 5 released</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue Jul 21, 11:59 PM</span>
+                    <span class="chip chip-blue" style="margin-top:3px;display:inline-block;">Practice due Sun Jul 26, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;color:#aaa;">—</td>
+            </tr>
+
+            <tr>
+              <td><div class="week-label">Wk 10</div><div class="week-date">July 29/30</div></td>
+              <td><strong>Transactions &amp; concurrency control II (locking, MVCC, deadlock)</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:83%;"></div></div>
+                <div class="progress-pct">83%</div>
+              </td>
+              <td>
+                <div class="pcrs-section" style="border:none;padding:0;margin:0;">
+                  <div class="pcrs-label">PCRS</div>
+                  <div class="chip-stack">
+                    <span class="chip chip-purple">Prep due Tue Jul 28, 11:59 PM</span>
+                    <span class="chip chip-blue">Practice due Sun Aug 2, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;color:#aaa;">—</td>
+            </tr>
+
+            <tr>
+              <td><div class="week-label">Wk 11</div><div class="week-date">Aug 5/6</div></td>
+              <td><strong>Guest lecture: industry databases + modern DB landscape</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:92%;"></div></div>
+                <div class="progress-pct">92%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-orange">Checkpoint 5 due · Aug 9, 5 PM</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue Aug 4, 11:59 PM</span>
+                    <span class="chip chip-blue" style="margin-top:3px;display:inline-block;">Practice due Sun Aug 9, 11:59 PM</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;color:#aaa;">—</td>
+            </tr>
+
+            <tr>
+              <td><div class="week-label">Wk 12</div><div class="week-date">Aug 12</div></td>
+              <td><strong>Exam prep, synthesis and course wrap-up</strong></td>
+              <td>
+                <div class="progress-bar"><div class="progress-fill faded" style="width:100%;"></div></div>
+                <div class="progress-pct">100%</div>
+              </td>
+              <td>
+                <div class="chip-stack">
+                  <span class="chip chip-navy">Final exam</span>
+                  <div class="pcrs-section">
+                    <div class="pcrs-label">PCRS</div>
+                    <span class="chip chip-purple">Prep due Tue Aug 11, 11:59 PM</span>
+                    <span style="font-size:11px;color:#aaa;">No practice exercises this week</span>
+                  </div>
+                </div>
+              </td>
+              <td style="font-size:12px;color:#aaa;">—</td>
+            </tr>
+
           </tbody>
         </table>
-      </div>
 
-      <!-- CHECKPOINTS -->
+        <p style="font-size:11px;color:#aaa;margin-top:10px;display:flex;gap:12px;flex-wrap:wrap;">
+          <span><span style="color:var(--navy-mid);">■</span> current week</span>
+          <span><span style="color:#b8cce4;">■</span> upcoming</span>
+          <span><span class="chip chip-purple" style="padding:1px 6px;font-size:10px;">PCRS prep</span></span>
+          <span><span class="chip chip-blue" style="padding:1px 6px;font-size:10px;">PCRS practice</span></span>
+        </p>
+
+      </div><!-- /tab-schedule -->
+
+      <!-- ══ CHECKPOINTS ══ -->
       <div class="tab-panel" id="tab-checkpoints">
+
         <h2 class="section-title" style="margin-top:0;">Project Checkpoints</h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:6px;">All five Checkpoints form one term-long project on the <strong>Research Network</strong> domain. Each builds directly on the previous.</p>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:6px;">All five Checkpoints form one term-long project on the <strong>Research Network</strong> domain. Each builds directly on the previous — improving Checkpoint <em>n</em> also improves your starting point for Checkpoint <em>n+1</em>.</p>
         <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;"><strong>Format requirement:</strong> All written solutions must be typeset in LaTeX. Missing files, non-compiling submissions, or syntax-error-only work receives a grade of 0.</p>
+
         <table class="checkpoint-table">
-          <thead><tr><th>Checkpoint</th><th style="width:60px;text-align:center;">Weight</th><th style="width:100px;">Due</th><th>Deliverables</th><th style="width:190px;">Resubmission</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Checkpoint</th>
+              <th style="width:60px;text-align:center;">Weight</th>
+              <th style="width:100px;">Due</th>
+              <th>Deliverables</th>
+              <th style="width:190px;">Resubmission</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td><strong>Checkpoint 1</strong><br><span class="sub">ERD: single Lab</span></td><td class="grade-weight">4%</td><td>May 17<br>5 PM</td><td>ERD for one Lab entity cluster. Course notation only. All cardinalities and participation constraints. Written justification ≤150 words.</td><td style="font-size:12px;color:var(--text-muted);">1 free resubmit within <strong>48 hours</strong> of grade release.</td></tr>
-            <tr><td><strong>Checkpoint 2</strong><br><span class="sub">Full network ERD + schema + DDL</span></td><td class="grade-weight">8%</td><td>May 31<br>5 PM</td><td>ERD for all 10 entities. Relational schema with all FKs. PostgreSQL DDL must run without error on the course server.</td><td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>.</td></tr>
-            <tr><td><strong>Checkpoint 3</strong><br><span class="sub">SQL + RA query set</span></td><td class="grade-weight">8%</td><td>June 14<br>5 PM</td><td>8 queries in SQL and RA. Include a README.</td><td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>.</td></tr>
-            <tr><td><strong>Checkpoint 4</strong><br><span class="sub">Normalisation</span></td><td class="grade-weight">8%</td><td>July 26<br>5 PM</td><td>Given a denormalised "GiantResearchTable": identify all FDs, compute the minimal cover, decompose into BCNF (or justify 3NF), document all anomalies, produce final normalised DDL.</td><td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>.</td></tr>
-            <tr><td><strong>Checkpoint 5</strong><br><span class="sub">Transactions</span></td><td class="grade-weight">8%</td><td>Aug 9<br>5 PM</td><td><strong>Scenario A:</strong> Two labs claim the same Equipment — write a SQL transaction pair, induce and resolve the conflict.<br><strong>Scenario B:</strong> Model the schedule, draw a precedence graph, identify serializability.</td><td style="font-size:12px;color:var(--text-muted);">No resubmits for Checkpoint 5.</td></tr>
+            <tr>
+              <td><strong>Checkpoint 1</strong><br><span class="sub">ERD: single Lab</span></td>
+              <td class="grade-weight">4%</td>
+              <td>May 17<br>5 PM</td>
+              <td>ERD for one Lab entity cluster (Researcher, Lab, Equipment). Course notation only. All cardinalities and participation constraints. Written justification ≤150 words.</td>
+              <td style="font-size:12px;color:var(--text-muted);">1 free resubmit within <strong>48 hours</strong> of grade release. Must include a changelog note.</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 2</strong><br><span class="sub">Full network ERD + schema + DDL</span></td>
+              <td class="grade-weight">8%</td>
+              <td>May 31<br>5 PM</td>
+              <td>ERD for all 10 entities. Relational schema with all FKs. PostgreSQL DDL must run without error on the course server.</td>
+              <td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>. Only DDL/schema may be revised; ERD grade locked after first submission.</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 3</strong><br><span class="sub">SQL + RA query set</span></td>
+              <td class="grade-weight">8%</td>
+              <td>June 14<br>5 PM</td>
+              <td>8 queries in SQL and RA: publications from a network · researchers on multiple projects · underfunded projects · labs with no grants · top-cited publications · expired grants · projects spanning &gt;2 institutions · datasets in &gt;3 publications. Include a README.</td>
+              <td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>. Test cases shared post-submission so you can diff and fix.</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 4</strong><br><span class="sub">Normalisation</span></td>
+              <td class="grade-weight">8%</td>
+              <td>July 26<br>5 PM</td>
+              <td>Given a denormalised "GiantResearchTable": identify all FDs, compute the minimal cover, decompose into BCNF (or justify 3NF), document all anomalies, produce final normalised DDL.</td>
+              <td style="font-size:12px;color:var(--text-muted);">1 resubmit within <strong>1 week</strong>. May revise FD set or decomposition; must state what changed.</td>
+            </tr>
+            <tr>
+              <td><strong>Checkpoint 5</strong><br><span class="sub">Transactions</span></td>
+              <td class="grade-weight">8%</td>
+              <td>Aug 9<br>5 PM</td>
+              <td>
+                <strong>Scenario A:</strong> Two labs claim the same Equipment — write a SQL transaction pair, induce and resolve the conflict.<br>
+                <strong>Scenario B:</strong> Researcher submits to two projects with conflicting grant rules — model the schedule, draw a precedence graph, identify serializability.<br>
+                For each: identify isolation level and explain with 2PL or MVCC.
+              </td>
+              <td style="font-size:12px;color:var(--text-muted);">No resubmits for Checkpoint 5.</td>
+            </tr>
           </tbody>
         </table>
-        <div class="callout callout-orange"><strong>Grace tokens:</strong> Each student receives 10 tokens, each worth a 2-hour extension on any checkpoint. Stack all 10 for a 20-hour window. Once exhausted, late submissions receive a 0.</div>
-      </div>
 
-      <!-- POLICIES -->
+        <div class="callout callout-orange">
+          <strong>Grace tokens:</strong> Each student receives 10 tokens, each worth a 2-hour extension on any checkpoint. Stack all 10 on one deadline for a 20-hour window. Once exhausted, late submissions receive a 0. Tokens are deducted automatically by MarkUs.
+        </div>
+
+      </div><!-- /tab-checkpoints -->
+
+      <!-- ══ POLICIES ══ -->
       <div class="tab-panel" id="tab-policies">
-        <h2 class="section-title" style="margin-top:0;">Policies</h2>
-        <div class="policy-section-title">Academic Integrity</div>
-        <table class="policy-table"><tbody>
-          <tr><td>All Checkpoints are <strong>individual work</strong>. Do not share or view another student's code.</td></tr>
-          <tr><td>Plagiarism detection (MOSS, JPLAG, TurnItIn) runs on <em>every</em> submission.</td></tr>
-          <tr><td><strong>AI tools</strong> are permitted as learning aids only. Submitting AI-generated content without citation = plagiarism.</td></tr>
-          <tr><td><strong>Tests and the final exam do not permit AI.</strong></td></tr>
-          <tr><td>Academic integrity investigations persist even if you drop the course.</td></tr>
-        </tbody></table>
-        <div class="policy-section-title">Missed Work &amp; Accommodations</div>
-        <table class="policy-table"><tbody>
-          <tr><td class="label">Term work</td><td>Email the Course Coordinator with supporting documentation at least <strong>1 week in advance</strong>.</td></tr>
-          <tr><td class="label">Missed midterm</td><td>No accommodations. In a serious documented emergency, contact the Course Coordinator immediately.</td></tr>
-          <tr><td class="label">Missed final exam</td><td>File an online petition within <strong>72 hours</strong>.</td></tr>
-          <tr><td class="label">Religious holidays</td><td>Notify the instructor at least <strong>2 weeks before</strong> the relevant due date.</td></tr>
-          <tr><td class="label">Accessibility</td><td>Arrange accommodations through Accessibility Services before writing any assessment.</td></tr>
-        </tbody></table>
-        <div class="policy-section-title">Resubmissions &amp; Regrades</div>
-        <table class="policy-table"><tbody>
-          <tr><td>Each Checkpoint allows <strong>one resubmission</strong>. Resubmitted work is graded out of a <strong>maximum of 80%</strong>; your recorded grade is the higher of the two attempts.</td></tr>
-          <tr><td>Re-mark requests must be submitted on MarkUs within <strong>5 calendar days</strong> of receiving a grade.</td></tr>
-        </tbody></table>
-        <div class="policy-section-title">PCRS Homework</div>
-        <table class="policy-table"><tbody>
-          <tr><td>Must be completed <strong>before your registered lecture section</strong>. No late submissions accepted.</td></tr>
-        </tbody></table>
-      </div>
 
-      <!-- TEAM -->
+        <h2 class="section-title" style="margin-top:0;">Policies</h2>
+
+        <div class="policy-section-title">Academic Integrity</div>
+        <table class="policy-table">
+          <tbody>
+            <tr><td>All Checkpoints are <strong>individual work</strong>. Do not share or view another student's code. Discussions must stay conceptual — no solutions, no walkthroughs of your approach.</td></tr>
+            <tr><td>Plagiarism detection (MOSS, JPLAG, TurnItIn) runs on <em>every</em> submission.</td></tr>
+            <tr><td><strong>AI tools</strong> (QuickTA, VoiceEx) are permitted as learning aids only. All submitted work must be entirely your own. Submitting AI-generated content without citation = plagiarism. Hallucinated sources = fabrication. Both are academic offences.</td></tr>
+            <tr><td><strong>Tests and the final exam do not permit AI.</strong> Be prepared to write SQL, Python, and Java without assistance.</td></tr>
+            <tr><td>Academic integrity investigations persist even if you drop the course. If found guilty you may be re-enrolled and receive a failing grade.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="policy-section-title">Missed Work &amp; Accommodations</div>
+        <table class="policy-table">
+          <tbody>
+            <tr><td class="label">Term work</td><td>Email the Course Coordinator with supporting documentation at least <strong>1 week in advance</strong>, or within 1 week of an unexpected event. Declare illness on ACORN. Not automatic.</td></tr>
+            <tr><td class="label">Missed midterm</td><td>No accommodations. In a serious documented emergency, contact the Course Coordinator immediately.</td></tr>
+            <tr><td class="label">Missed final exam</td><td>File an online petition within <strong>72 hours</strong>. Late petitions are not considered.</td></tr>
+            <tr><td class="label">Religious holidays</td><td>Notify the instructor at least <strong>2 weeks before</strong> the relevant due date.</td></tr>
+            <tr><td class="label">Accessibility</td><td>Arrange accommodations through Accessibility Services before writing any assessment. Retroactive petitions are not accepted.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="policy-section-title">Resubmissions &amp; Regrades</div>
+        <table class="policy-table">
+          <tbody>
+            <tr><td>Each Checkpoint allows <strong>one resubmission</strong> (Checkpoint 1: within 48 hrs; Checkpoints 2–5: within 1 week of grade release). Resubmitted work is graded out of a <strong>maximum of 80%</strong>; your recorded grade is the higher of the two attempts.</td></tr>
+            <tr><td>Teaching staff may conduct <strong>oral interviews</strong> after any due date to verify understanding. Interview grades are final and cannot be appealed.</td></tr>
+            <tr><td>Re-mark requests must be submitted on MarkUs within <strong>5 calendar days</strong> of receiving a grade. Re-marking may cover the full submission and may raise or lower your mark.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="policy-section-title">PCRS Homework</div>
+        <table class="policy-table">
+          <tbody>
+            <tr><td>Must be completed <strong>before your registered lecture section</strong>. No late submissions accepted and no accommodations — completion is required to actively participate in lecture.</td></tr>
+            <tr><td>Full marks require: all exercises correct, all videos watched (or readings done), all reflections and follow-up components, any external surveys, and any linked platform activities.</td></tr>
+          </tbody>
+        </table>
+
+      </div><!-- /tab-policies -->
+
+      <!-- ══ TEAM ══ -->
       <div class="tab-panel" id="tab-team">
+
         <h2 class="section-title" style="margin-top:0;">Course Team</h2>
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">We're all here because we want you to succeed. Come to office hours, post on Piazza, reach out.</p>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">We're all here because we want you to succeed. Come to office hours, post on Piazza, reach out. The worst that can happen is we help you.</p>
+
         <div class="team-section-label">Instructor</div>
+
         <div class="instructor-card">
           <div class="person-header">
-            <div class="avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQEQUu_bZckWqw/profile-displayphoto-shrink_200_200/0/1730351355807" alt="Naaz Sibia" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>NS</span>'"></div>
-            <div><div class="person-name">Naaz Sibia</div><span class="role-badge">Instructor</span></div>
+            <div class="avatar">
+              <img src="https://media.licdn.com/dms/image/v2/D4E03AQEQUu_bZckWqw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1730351355807?e=2147483647&v=beta&t=xMvpzaoAZNaxPnhrNsP952lm9FLBA1LhFds_zmQeEMs" alt="Naaz Sibia" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>NS</span>'">
+            </div>
+            <div>
+              <div class="person-name">Naaz Sibia</div>
+              <span class="role-badge">Instructor</span>
+            </div>
           </div>
-          <p class="person-bio">I'm a Ph.D. candidate in Computer Science at the University of Toronto, co-supervised by Professors Michael Liut and Carolina Nobre. My research focuses on using interactive visualizations to improve introductory computing courses and improving help-seeking resources to be more inclusive for students.</p>
+          <p class="person-bio">I'm a Ph.D. candidate in Computer Science at the University of Toronto, co-supervised by Professors Michael Liut and Carolina Nobre. My research focuses on using interactive visualizations to improve introductory computing courses and improving help-seeking resources (like Q&amp;A forums) to be more inclusive for students.</p>
+          <p class="person-bio" style="margin-top:10px;">I serve on the Graduate Education Council and work with ACM-W North America to make computing more welcoming. My goal is to bring the principles I've learned in my research and service work into this course to make it more engaging and equitable for all students.</p>
           <div class="contact-chips">
             <span class="contact-chip">📅 Wed 11 AM–1 PM · DH-3074</span>
             <a href="mailto:naaz.sibia@utoronto.ca" class="contact-chip">✉ naaz.sibia@utoronto.ca</a>
@@ -397,73 +1212,125 @@
           </div>
           <div class="interests-label">Outside of work</div>
           <div class="interests">
-            <span class="interest-tag">☀️ solar flares</span><span class="interest-tag">🧶 crochet toys</span><span class="interest-tag">🎨 chibis</span><span class="interest-tag">☕ philosophy &amp; coffee</span>
+            <span class="interest-tag">☀️ solar flares</span>
+            <span class="interest-tag">🧶 crochet toys</span>
+            <span class="interest-tag">🎨 chibis</span>
+            <span class="interest-tag">☕ philosophy &amp; coffee</span>
           </div>
         </div>
+
         <div class="team-section-label">Teaching Assistants</div>
+
         <div class="ta-grid">
+
           <div class="ta-card">
             <div class="person-header">
-              <div class="avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQFyhkO9iVZOXg/profile-displayphoto-shrink_400_400/0/1703726116041" alt="Amber Richardson" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>AR</span>'"></div>
-              <div><div class="person-name" style="font-size:16px;">Amber Richardson</div><span class="role-badge">Teaching Assistant</span></div>
+              <div class="avatar">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQFyhkO9iVZOXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1703726116041?e=1779926400&v=beta&t=1p_iIZ_3uDEWxnxMA0EWYk-LBUdMVik-4UoqZ1jPjFo" alt="Amber Richardson" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>AR</span>'">
+              </div>
+              <div>
+                <div class="person-name" style="font-size:16px;">Amber Richardson</div>
+                <span class="role-badge">Teaching Assistant</span>
+              </div>
             </div>
-            <p class="person-bio" style="font-size:13px;">I'm Amber (any/all pronouns), a graduating UTM Computer Science student. In September, I'll begin my Ph.D. in Computer Science at McMaster!</p>
-            <div class="contact-chips"><a href="https://amberlynnr33.github.io/" target="_blank" rel="noopener" class="contact-chip">🌐 amberlynnr33.github.io</a></div>
+            <p class="person-bio" style="font-size:13px;">I'm Amber (any/all pronouns), a graduating UTM Computer Science student. In September, I'll begin my Ph.D. in Computer Science at McMaster with Professor Angela Zavaleta Bernuy! Until then, I'll be supporting you as a CSC343 TA and working as a research assistant under Professor Michael Liut. I'll still be around, so don't hesitate to say hi if you see me!</p>
+            <div class="interests-label">Outside of work</div>
+            <div class="interests" style="margin-bottom:12px;">
+              <span class="interest-tag">🧶 crochet</span>
+              <span class="interest-tag">🎮 gaming</span>
+              <span class="interest-tag">🕺 just dance</span>
+              <span class="interest-tag">📝 writing</span>
+            </div>
+            <div class="contact-chips">
+              <a href="https://amberlynnr33.github.io/" target="_blank" rel="noopener" class="contact-chip">🌐 amberlynnr33.github.io</a>
+              <a href="https://www.linkedin.com/in/j-amber-l-richardson" target="_blank" rel="noopener" class="contact-chip">💼 LinkedIn</a>
+            </div>
           </div>
+
           <div class="ta-card">
             <div class="person-header">
-              <div class="avatar"><img src="https://q.utoronto.ca/courses/436037/files/43375280/preview?instfs=true" alt="Jessica Wen" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>JW</span>'"></div>
-              <div><div class="person-name" style="font-size:16px;">Jessica Wen</div><span class="role-badge">Teaching Assistant</span></div>
+              <div class="avatar">
+                <img src="https://q.utoronto.ca/courses/436037/files/43375280/preview?instfs=true" alt="Jessica Wen" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>JW</span>'">
+              </div>
+              <div>
+                <div class="person-name" style="font-size:16px;">Jessica Wen</div>
+                <span class="role-badge">Teaching Assistant</span>
+              </div>
             </div>
-            <p class="person-bio" style="font-size:13px;">If you check out the 3rd floor of DH, you'll find a whole bunch of decorated doors — all designed by Jess. Come say hi! >:)</p>
+            <p class="person-bio" style="font-size:13px;">If you check out the 3rd floor of DH, you'll find a whole bunch of decorated doors — all designed by Jess. Come say hi! &gt;:)</p>
           </div>
+
           <div class="ta-card">
             <div class="person-header">
               <div class="avatar"><span class="avatar-initials">Q</span></div>
-              <div><div class="person-name" style="font-size:16px;">Qazi</div><span class="role-badge">Teaching Assistant</span></div>
+              <div>
+                <div class="person-name" style="font-size:16px;">Qazi</div>
+                <span class="role-badge">Teaching Assistant</span>
+              </div>
             </div>
-            <p class="person-bio" style="font-size:13px;">Hey everyone! I'm Qazi, a 5th-year CS student hoping to graduate this October. Really excited to meet you all!</p>
+            <p class="person-bio" style="font-size:13px;">Hey everyone! I'm Qazi, a 5th-year CS student hoping to graduate this October. I'll be one of your practical TAs this semester, and I'm really excited to meet you all and help out wherever I can!</p>
+            <div class="interests-label">Outside of work</div>
+            <div class="interests">
+              <span class="interest-tag">⚽ soccer</span>
+              <span class="interest-tag">🎮 video games</span>
+              <span class="interest-tag">🎬 movies</span>
+              <span class="interest-tag">📚 reading</span>
+            </div>
           </div>
+
           <div class="ta-card-placeholder">TA info coming soon!</div>
           <div class="ta-card-placeholder">TA info coming soon!</div>
           <div class="ta-card-placeholder">TA info coming soon!</div>
+
         </div>
-      </div>
+
+      </div><!-- /tab-team -->
 
     </main>
-    <footer>CSC343H5Y · Introduction to Databases · Summer 2026 · University of Toronto Mississauga</footer>
-  </div>
-</div>
+
+    <footer>
+      CSC343H5Y · Introduction to Databases · Summer 2026 · University of Toronto Mississauga
+    </footer>
+
+  </div><!-- /content-area -->
+
+</div><!-- /page-shell -->
 
 <script>
-  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabBtns   = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
   const topbarTitle = document.getElementById('topbar-title');
-  const tabLabels = { home:'Home', grades:'Grades & Assessments', schedule:'Weekly Schedule', checkpoints:'Project Checkpoints', policies:'Policies', team:'Course Team' };
+
+  const tabLabels = {
+    home:        'Home',
+    grades:      'Grades & Assessments',
+    schedule:    'Weekly Schedule',
+    checkpoints: 'Project Checkpoints',
+    policies:    'Policies',
+    team:        'Course Team'
+  };
+
   function switchTab(target) {
     tabBtns.forEach(b => b.classList.remove('active'));
     tabPanels.forEach(p => p.classList.remove('active'));
-    const btn = document.querySelector('[data-tab="'+target+'"]');
-    const panel = document.getElementById('tab-'+target);
-    if (btn) btn.classList.add('active');
+    const btn = document.querySelector(`[data-tab="${target}"]`);
+    const panel = document.getElementById('tab-' + target);
+    if (btn)   btn.classList.add('active');
     if (panel) panel.classList.add('active');
     if (topbarTitle) topbarTitle.textContent = tabLabels[target] || '';
     window.location.hash = target;
   }
+
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       switchTab(btn.dataset.tab);
       document.querySelector('.content-area').scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
-  const hash = window.location.hash.replace('#','');
+
+  const hash = window.location.hash.replace('#', '');
   if (hash && tabLabels[hash]) switchTab(hash);
-  const resumeDate = new Date('2026-07-08');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const diff = Math.round((resumeDate - today) / (1000*60*60*24));
-  const el = document.getElementById('days-left');
-  if (el) el.textContent = diff > 0 ? diff : '0';
 </script>
+
 </body>
 </html>
